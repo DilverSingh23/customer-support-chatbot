@@ -7,7 +7,7 @@ export default function Home() {
   const [messages, setMessages] = useState([
     {
       role: 'assistant',
-      content: `Hi! I'm the Headstarter Support Agent, how can I assist you today?`,
+      content: `Hi! I'm the BetrHealth Support Agent! BetrHealth is an AI powered online physical therapy / kinesiology tool. You can enter the specific problem you are encountering and our highly trained AI model will provide you with science based exercises and next steps to help you in your recovery. How can I assist you today?`,
     }
   ])
 
@@ -53,68 +53,86 @@ export default function Home() {
   }
 
   return (
-  <Box 
-    width="100vw" 
-    height="100vh"
-    display="flex"
-    flexDirection="column"
-    justifyContent="center"
-    alignItems="center"
-  >
-    <Stack
-      direction="column"
-      width="600px"
-      height="700px"
-      border="1px solid black"
-      p={2}
-      spacing={3}
+    <Box 
+      width="100vw" 
+      height="100vh"
+      display="flex"
+      flexDirection="column"
+      justifyContent="center"
+      alignItems="center"
+      sx={{
+        backgroundImage: `url('https://img.freepik.com/free-vector/hand-drawn-medical-background_23-2151334866.jpg?t=st=1723408979~exp=1723412579~hmac=a4dc286170525e5ddf876862cffc91e5e75be2760820dab9d713559fddd96a6c&w=1800')`,
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+      }}
     >
       <Stack
         direction="column"
-        spacing = {2}
-        flexGrow={1}
-        overflow="auto"
-        maxHeight="100%"
+        width="500px"
+        height="650px"
+        border="1px solid #e0e0e0"
+        borderRadius="10px"
+        bgcolor="rgba(255, 255, 255, 0.9)"
+        p={2}
+        spacing={2}
       >
-        {messages.map((message,index)=>(
-          <Box 
-            key = {index} 
-            display = 'flex' 
-            justifyContent = {
-              message.role === 'assistant' 
-                ? 'flex-start' 
-                : 'flex-end'
-            }
-          >
-            <Box bgcolor ={
-              message.role === 'assistant' 
-                ? '#E5E5EA' 
-                : '#007AFF'
-              }
-              color = {
-              message.role === 'assistant'
-                ? 'black'
-                : 'white'
-              }
-              borderRadius={16}
-              p={3}
-            >
-              {message.content}
-            </Box>
-          </Box>
-        ))}
-      </Stack>
-      <Stack direction = "row" spacing = {2}>
-        <TextField
-          label = "Message"
-          fullWidth
-          value = {message}
-          onChange = {(e) => setMessage(e.target.value)}
+        <Box display="flex" justifyContent="center" alignItems="center" mb={2}>
+          <img src="https://cdn.discordapp.com/attachments/921999860515876924/1272299420737601626/betrhealth_logo-removebg-preview.png?ex=66ba78ac&is=66b9272c&hm=a0dccbc2ea8c8c7863fa3030e62eff342f5eb19208615650dcb5666e0c174b70&" alt="BetrHealth Logo" height="50px" />
+        </Box>
+        <Stack
+          direction="column"
+          spacing={2}
+          flexGrow={1}
+          overflow="auto"
+          maxHeight="100%"
+          p={1}
         >
-        </TextField>
-        <Button variant = "contained" onClick={sendMessage}>Send</Button>
+          {messages.map((message, index) => (
+            <Box 
+              key={index}
+              display="flex" 
+              justifyContent={message.role === 'assistant' ? 'flex-start' : 'flex-end'}
+            >
+              <Box 
+                bgcolor={message.role === 'assistant' ? '#d269e6' : '#bff4fe'}
+                color={message.role === 'assistant' ? 'white' : 'black'}
+                borderRadius="16px"
+                p={2}
+                maxWidth="80%"
+              >
+                {message.content}
+              </Box>
+            </Box>
+          ))}
+        </Stack>
+        <Stack direction="row" spacing={1}>
+          <TextField
+            label="Message"
+            fullWidth
+            variant="outlined"
+            size="small"
+            value={message}
+            onChange={(e) => setMessage(e.target.value)}
+            sx={{
+              wordWrap: 'break-word',
+              overflowWrap: 'break-word',
+              whiteSpace: 'normal', 
+            }}
+          />
+          <Button 
+          variant="contained"
+          onClick={sendMessage} 
+          sx={{ bgcolor: "#d269e6",
+          minWidth: '80px',
+          '&:hover': {
+            bgcolor: "#bff4fe !important",
+            color: "#000000",
+          }
+          }}>
+            Send
+          </Button>
+        </Stack>
       </Stack>
-    </Stack>
-  </Box>
+    </Box>
   )
 }
