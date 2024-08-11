@@ -1,4 +1,4 @@
-BetrHealth Chatbot 
+BetrHealth Chatbot ⚕️
 
 BetrHealth is an AI powered online physical therapy / kinesiology tool. You can enter the specific problem you are encountering and our highly trained AI model will provide you with science based exercises and next steps to help you in your recovery.
 
