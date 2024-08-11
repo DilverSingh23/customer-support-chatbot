@@ -1,3 +1,9 @@
+BetrHealth Chatbot 
+
+BetrHealth is an AI powered online physical therapy / kinesiology tool. You can enter the specific problem you are encountering and our highly trained AI model will provide you with science based exercises and next steps to help you in your recovery.
+
+Created by: Dilver Singh, Alfred Siby Cyriac, Harman Aujla, and Navraj Rehal. 
+
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started
